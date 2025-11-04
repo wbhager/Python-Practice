@@ -15,7 +15,7 @@ History on the project:
 
 11/3: Initialized project, created 2 branches, one for each of the new files I created (chat-ui.py and ai-response-generator.py), pushed changes on one of the branches, merged branch to main (Time spent: 1 hr)
 
-
+11/4: Added gitignore file with my .env file, moved the gitignore file to the root folder, organized misc. files in root folder and finished setting up my git repository, generated the claude key (I plan to use Claude 3 Sonnet and input $15 beforehand, it will give me approximately 1 million tokens worth to work with)
 
 
 Total time spent: 1.0 hrs
