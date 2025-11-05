@@ -18,8 +18,9 @@ History on the project:
 11/4: Added gitignore file with my .env file, moved the gitignore file to the root folder, organized misc. files in root folder and finished setting up my git repository, generated the claude key (I plan to use Claude 3 Sonnet and input $15 beforehand, it will give me approximately 1 million tokens worth to work with)
 (Time spent: 1.25 hrs)
 
+11/5: Added credits to Claude, read up on output token generation (Time spent: 0.25 hrs)
 
-Total time spent: 2.25 hrs
+Total time spent: 2.5 hrs
 
 
 
