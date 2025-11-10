@@ -6,7 +6,7 @@ My goal is to integrate python with GPT-4o and n8n and create some sort of agent
 
 
 
-To-do: Make calls to the model to make sure it works, start an n8n workflow and integrate it with Python
+To-do: Fix antrhopic_doesn't_exist bug that will let me make calls to the model to make sure it works, start an n8n workflow and integrate it with Python
 
 
 
@@ -20,7 +20,10 @@ History on the project:
 
 11/5: Added credits to Claude, read up on output token generation (Time spent: 0.25 hrs)
 
-Total time spent: 2.5 hrs
+11/10: Added code so that I should be able to make an API call to claude-sonnet, but having an issue with an anthropic bug saying I don't have it installed when
+I know that I do (Time spent: 0.25 hrs)
+
+Total time spent: 2.75 hrs
 
 
 
