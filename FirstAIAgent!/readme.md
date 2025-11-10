@@ -6,7 +6,7 @@ My goal is to integrate python with GPT-4o and n8n and create some sort of agent
 
 
 
-To-do: Get OpenAI API key, make calls to the model to make sure it works, start an n8n workflow and integrate it with Python
+To-do: Make calls to the model to make sure it works, start an n8n workflow and integrate it with Python
 
 
 
