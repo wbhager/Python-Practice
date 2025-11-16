@@ -24,7 +24,8 @@ I know that I do
 
 11/14: Debugging bug saying that I still don't have claude installed, went about fixing this in several ways but still no found solutions. Removed special character from original directory name to limit the kinds of unnecessary errors that could be causing issues for me
 
-11/16: Spent more time debugging, renamed file names to remove special characters to limit unnecessary errors
+11/16: Spent some more time debugging, renamed file names to remove special characters to limit unnecessary errors
+
 
 
 
