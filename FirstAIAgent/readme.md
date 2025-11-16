@@ -13,17 +13,20 @@ To-do: Fix antrhopic_doesn't_exist bug that will let me make calls to the model 
 
 History on the project:
 
-11/3: Initialized project, created 2 branches, one for each of the new files I created (chat-ui.py and ai-response-generator.py), pushed changes on one of the branches, merged branch to main (Time spent: 1 hr)
+11/3: Initialized project, created 2 branches, one for each of the new files I created (chat-ui.py and ai-response-generator.py), pushed changes on one of the branches, merged branch to main 
 
 11/4: Added gitignore file with my .env file, moved the gitignore file to the root folder, organized misc. files in root folder and finished setting up my git repository, generated the claude key (I plan to use Claude 3 Sonnet and input $15 beforehand, it will give me approximately 1 million tokens worth to work with)
-(Time spent: 1.25 hrs)
 
-11/5: Added credits to Claude, read up on output token generation (Time spent: 0.25 hrs)
+11/5: Added credits to Claude, read up on output token generation 
 
 11/10: Added code so that I should be able to make an API call to claude-sonnet, but having an issue with an anthropic bug saying I don't have it installed when
-I know that I do (Time spent: 0.25 hrs)
+I know that I do 
 
-Total time spent: 2.75 hrs
+11/14: Debugging bug saying that I still don't have claude installed, went about fixing this in several ways but still no found solutions. Removed special character from original directory name to limit the kinds of unnecessary errors that could be causing issues for me
+
+11/16: Spent more time debugging, renamed file names to remove special characters to limit unnecessary errors
+
+
 
 
 
