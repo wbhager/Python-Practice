@@ -5,6 +5,6 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-client = Anthropic(api_key=os.getenv("ANT_AP_KY"))
+client = Anthropic(api_key = os.getenv("ANT_AP_KY"))
 
 app = FastAPI()

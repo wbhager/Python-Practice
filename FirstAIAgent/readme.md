@@ -1,12 +1,35 @@
 Hello! Welcome to my very first AI Agent project!
 
-My goal is to integrate python with GPT-4o and n8n and create some sort of agent that does something for me and makes my life easier. I'll also keep track of the work I've done and how long I've spent on the work.
+My goal is to integrate python with claude-4-5-sonnet and n8n and then implement a nice-looking UI, then create some sort of agent that does something for me and makes my life easier. I'll also keep track of the work I've done and how long I've spent on the work.
 
 <br> <br> <br>
 
 
 
-To-do: Fix antrhopic_doesn't_exist bug that will let me make calls to the model to make sure it works, start an n8n workflow and integrate it with Python
+To-do: Establish n8n connection, begin constructing a bare-bones UI so that the user can interact with the agent, come up with idea for what I want my agent to be able to do, add a system prompt to the ai_response_generator file 
+
+
+
+Project layout:
+
+FirstAIAgent/
+    api/
+        api_server.py
+        __init__.py
+    logic/
+        agent.py
+        model.py
+        __init__.py
+    memory/
+        buffer.py
+        summary.py
+        __init__.py
+    templates/
+        system_prompt.txt
+        qa_prompt.py
+        __init__.py
+    ui/
+        index.html
 
 
 
@@ -26,10 +49,9 @@ I know that I do
 
 11/16: Spent some more time debugging, renamed file names to remove special characters to limit unnecessary errors
 
-11/17: 
+11/17: Initialized and began writing code for my api_server.py file that will use to establish the n8n connection, finally fixed the bug from earlier (the model I was trying to use was not supported anymore, so I switched to a newer model), read up on ways to construct my agent project, settled with a final layout of my project
 
 
-test
 
 
 
