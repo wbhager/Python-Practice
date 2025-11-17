@@ -26,7 +26,10 @@ I know that I do
 
 11/16: Spent some more time debugging, renamed file names to remove special characters to limit unnecessary errors
 
+11/17: 
 
+
+test
 
 
 
