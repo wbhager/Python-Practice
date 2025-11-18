@@ -51,7 +51,7 @@ I know that I do
 
 11/17: Initialized and began writing code for my api_server.py file that will use to establish the n8n connection, finally fixed the bug from earlier (the model I was trying to use was not supported anymore, so I switched to a newer model), read up on ways to construct my agent project, settled with a final layout of my project, read up on the basics of JavaScript
 
-
+11/18: Initialized docker server with n8n, read up on host servers and ports, read up on how I can establish the full pipeline from UI to n8n to python to model to python to n8n to UI
 
 
 
