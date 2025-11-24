@@ -6,7 +6,8 @@ My goal is to integrate python with claude-4-5-sonnet and n8n and then implement
 
 
 
-To-do: Establish n8n connection, begin constructing a bare-bones UI so that the user can interact with the agent, come up with idea for what I want my agent to be able to do, add a system prompt to the ai_response_generator file 
+To-do: Begin constructing a bare-bones UI so that the user can interact with the agent, connect the ui to n8n and then connect n8n to my python backend, 
+come up with idea for what I want my agent to be able to do, add a system prompt to the ai_response_generator file 
 
 
 
@@ -56,6 +57,6 @@ I know that I do
 11/19: Learned more about webhooks, testing the first webhook trigger node and tried to determine why I was receiving error 404s and why URL only worked with port 5680 and not 5678
 
 11/23: Tested post request success by sending messages n8n from the terminal, studied up on the basics of UI development and watched online videos outlining the
-of web development and html
+of web development and html, initialized one html file, javascript file, and css file 
 
 
