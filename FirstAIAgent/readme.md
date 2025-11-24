@@ -55,7 +55,7 @@ I know that I do
 
 11/19: Learned more about webhooks, testing the first webhook trigger node and tried to determine why I was receiving error 404s and why URL only worked with port 5680 and not 5678
 
-11/21: Tested post request success by sending messages n8n from the terminal, studied up on the basics of UI development and watched online videos outlining the
+11/23: Tested post request success by sending messages n8n from the terminal, studied up on the basics of UI development and watched online videos outlining the
 of web development and html
 
 
