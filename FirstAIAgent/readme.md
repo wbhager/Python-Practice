@@ -1,6 +1,7 @@
 Hello! Welcome to my very first AI Agent project!
 
-My goal is to integrate python with claude-4-5-sonnet and n8n and then implement a nice-looking UI, then create some sort of agent that does something for me and makes my life easier. I'll also keep track of the work I've done and how long I've spent on the work.
+My goal is to create a web agent that looks great and can act as my planner, adding things to my calendar or suggesting things to me that I can do. The agent
+will have access to one of my emails' google calendars, w4561927@gmail.com. I'll also keep track of the work I've done and how long I've spent on the work.
 
 <br> <br> <br>
 
@@ -9,6 +10,7 @@ My goal is to integrate python with claude-4-5-sonnet and n8n and then implement
 To-do: Begin constructing a bare-bones UI so that the user can interact with the agent, connect the ui to n8n and then connect n8n to my python backend, 
 come up with idea for what I want my agent to be able to do, add a system prompt to the ai_response_generator file 
 
+<br> <br> <br>
 
 
 Project layout:
@@ -32,6 +34,7 @@ FirstAIAgent/
     ui/
         index.html
 
+<br> <br> <br>
 
 
 
@@ -59,4 +62,5 @@ I know that I do
 11/23: Tested post request success by sending messages n8n from the terminal, studied up on the basics of UI development and watched online videos outlining the
 of web development and html, initialized one html file, javascript file, and css file 
 
-
+11/24: Finalized idea for what I want my agent to be (planner/suggestor), more UI studying, updated index.html with bare-bones code
+to bring to life a user interface for my agent that I intend to make look like some sort of chat bot, created a favicon for my website
