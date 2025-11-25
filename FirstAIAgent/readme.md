@@ -65,4 +65,4 @@ of web development and html, initialized one html file, javascript file, and css
 11/24: Finalized idea for what I want my agent to be (planner/suggestor), more UI studying, updated index.html with bare-bones code
 to bring to life a user interface for my agent that I intend to make look like some sort of chat bot, created a favicon for my website
 
-11/25: Learned about webhook responses, added a webhook response node to the n8n workflow, Studied up on servers and api calls, learned the basics of how Claude's call-and-response message system works, constructed the api_server.py file, updated the readme.md with work completed on 11/25
+11/25: Learned about webhook responses, added a webhook response node to the n8n workflow, Studied up on servers and api calls, learned the basics of how Claude's call-and-response message system works, constructed the api_server.py file
