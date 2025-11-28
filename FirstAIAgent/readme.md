@@ -7,7 +7,11 @@ will have access to one of my emails' google calendars, w4561927@gmail.com. I'll
 
 
 
-To-do: Begin constructing a bare-bones UI so that the user can interact with the agent, connect the ui to n8n and then connect n8n to my python backend, 
+To-do: Re-add gitignore, add .env and:
+__pycache__/
+*.pyc
+
+To-do 2: Begin constructing a bare-bones UI so that the user can interact with the agent, connect the ui to n8n and then connect n8n to my python backend, 
 come up with idea for what I want my agent to be able to do, add a system prompt to the ai_response_generator file 
 
 <br> <br> <br>
