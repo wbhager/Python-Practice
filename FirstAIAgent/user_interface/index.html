@@ -4,12 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First AI Agent</title>
+    <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="favicon.ico" />
-
-
 </head>
+
 <body>
-    <h1>Welcome to My First AI Agent</h1>
-    <p>This is a simple user interface.</p>
+    <div class="app"></div>
+        <header class="app-header">
+            <h1>AI Agent Interface</h1>
+            <p>AI messaging screen</p>
+        </header>
+
+        <main class="chat-container">
+            <div id="messages" class="messages"></div>
+        </main>
+
+        <footer class="input-container">
+            <form id="chat-form"></form>
+                <input id="user-input">
+                <button id="send-button" type="submit">Send</button>
+            </form>
+            <div id="status" class="status"></div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
