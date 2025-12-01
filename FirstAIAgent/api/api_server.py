@@ -21,6 +21,6 @@ async def chat_endpoint(data: Message):
 
     reply = response.content[0].text
 
-    return reply
+    return {"reply": reply}
 
 
