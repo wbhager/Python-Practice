@@ -70,3 +70,5 @@ of web development and html, initialized one html file, javascript file, and css
 to bring to life a user interface for my agent that I intend to make look like some sort of chat bot, created a favicon for my website
 
 11/25: Learned about webhook responses, added a webhook response node to the n8n workflow, Studied up on servers and api calls, learned the basics of how Claude's call-and-response message system works, constructed the api_server.py file
+
+11/28: 
