@@ -22,21 +22,21 @@ Project layout:
 FirstAIAgent/
     api/
         api_server.py
-        __init__.py
     logic/
+        ai_response.generator.py
         agent.py
         model.py
-        __init__.py
     memory/
         buffer.py
         summary.py
-        __init__.py
     templates/
         system_prompt.txt
         qa_prompt.py
-        __init__.py
     ui/
         index.html
+        style.css
+        app.js
+        favicon.ico
 
 <br> <br> <br>
 
@@ -71,4 +71,8 @@ to bring to life a user interface for my agent that I intend to make look like s
 
 11/25: Learned about webhook responses, added a webhook response node to the n8n workflow, Studied up on servers and api calls, learned the basics of how Claude's call-and-response message system works, constructed the api_server.py file
 
-11/28: 
+11/28: Continued researching webhooks, APIs, and servers, worked on getting the backend to connect to n8n (REWORD)
+
+11/30: Added to .gitignore
+
+12/1: Constructed the baseline html file and most of the css file
