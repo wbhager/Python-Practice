@@ -7,12 +7,9 @@ will have access to one of my emails' google calendars, w4561927@gmail.com. I'll
 
 
 
-To-do: Re-add gitignore, add .env and:
-__pycache__/
-*.pyc
 
-To-do 2: Begin constructing a bare-bones UI so that the user can interact with the agent, connect the ui to n8n and then connect n8n to my python backend, 
-come up with idea for what I want my agent to be able to do, add a system prompt to the ai_response_generator file 
+
+To-do: Some troubleshooting to figure out why some of the prompts aren't getting answered, adding some more basic UI enhancements, adding basic agent functionality, some system prompt engineering, and potentially adding some sort of memory capability
 
 <br> <br> <br>
 
@@ -73,6 +70,10 @@ to bring to life a user interface for my agent that I intend to make look like s
 
 11/28: Continued researching webhooks, APIs, and servers, worked on getting the backend to connect to n8n (REWORD)
 
-11/30: Added to .gitignore
+11/30: Updated .gitignore file
 
-12/1: Constructed the baseline html file and most of the css file
+12/1: Reviewed the basics of HTML and CSS, constructed the full baseline html file and most of the css file, studied up on prompt engineering before constructing the system prompt
+
+12/2: Constructed the rest of the CSS file, researched more ways that web pages could be shaped and modified, begun learning the basics of how JavaScript works and how it works in tandem with HTML and CSS
+
+12/3: Studied up on the basics of JavaScript, decided upon the basic functionality I wanted my webpage to have, constructed the first full JavaScript file with properties such as basic button functions, displaying error messages, and preventing certain functions from happening when the frontend is waiting for the backend response, troubleshooted a visual mistake where I fixed the allignment of the messages, began scoping out why my agent was only answering basic prompts and not longer ones
