@@ -1,10 +1,31 @@
+/* Default background settings (Light mode) */
+:root {
+    --bg: #d1eaff;
+    --text: #222;
+    --bubble-user: #1deaff;
+    --bubble-bot: #ffffff;
+    --header-bg: #ffffff;
+    --border: #ddd;
+}
+
+.dark-mode {
+    --bg: #1e1e1e;
+    --text: #e5e5e5;
+    --bubble-user: #274e77;
+    --bubble-bot: #2b2b2b;
+    --header-bg: #222;
+    --border: #444;
+}
+
+
 /* Background default settings across everything */
 html, body {
     margin: 0;
     padding: 20px;
     height: 100%;
     font-family: Helvetica, sans-serif;
-    background: #f5f5f5;
+    background: var(--bg);
+    color: var(--text);
 }
 
 /* Adjusting position of chat window */
@@ -19,7 +40,7 @@ html, body {
 /* Header features */
 .app-header {
     padding: 12px 16px;
-    background: #202123;
+    background: var(--header-bg);
     color: white;
 }
 
@@ -38,8 +59,7 @@ html, body {
     flex: 1;
     padding: 16px;
     overflow-y: auto;
-    background: #0000ff;
-    opacity: 0.2;
+    background: #bcdcff;
 }
 
 /* Message features */
@@ -71,14 +91,16 @@ html, body {
 }
 
 .message-row.user .message-bubble {
-    background: #007bff;
-    color: white;
+    background: var(--bubble-user);
+    color: var(--text);
+    border: var(--border);
     border-bottom-right-radius: 2px;
 }
 
 .message-row.assistant .message-bubble {
-    background: white;
-    border: 1px solid #ddd;
+    background: var(--bubble-bot);
+    color: var(--text);
+    border: var(--border);
     border-bottom-left-radius: 2px;
 }
 

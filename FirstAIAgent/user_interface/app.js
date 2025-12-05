@@ -77,6 +77,21 @@ async function sendMessageToAgent(userMessage) {
     }
 }
 
+// Light mode / dark mode applier function
+function applyThemeByTime() {
+    const hour = new Date().getHours()
+    const ifNight = hour >= 17.5 || hour <= 7.5
+
+    if (ifNight) {
+        document.body.classList.add("dark-mode")
+    } else {
+        document.body.classList.remove("dark-mode")
+    }
+}
+
+// Apply theme on load/refresh
+applyThemeByTime();
+
 // Event listener trigger
 formEl.addEventListener('submit', (event) => {
     event.preventDefault();
