@@ -5,12 +5,17 @@ import os
 load_dotenv()
 client = Anthropic(api_key = os.getenv("ANT_AP_KY"))
 
-# Sample Claude call
-if __name__ == "__main__":
+SYSTEM_PROMPT = Path("system_prompt.txt").read_text()
+
+# Function that grabs the Claude response with my own specifications
+def get_claude_response(user_message: str):
     response = client.messages.create(
-    model = "claude-sonnet-4-5-20250929",
-    max_tokens = 150,
-    messages = [{"role": "user", "content": "Compare the abilities of claude-3-sonnet and gpt-4 in detail."}]
+        model = "claude-sonnet-4-5-20250929",
+        system = SYSTEM_PROMPT,
+        max_tokens = 150,
+        messages = [{"role": "user", "content": user_message}]
+
+        return response.context[0].text
 )
 
 
