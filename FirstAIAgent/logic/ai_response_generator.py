@@ -5,6 +5,7 @@ import os
 load_dotenv()
 client = Anthropic(api_key = os.getenv("ANT_AP_KY"))
 
+# Sample Claude call
 if __name__ == "__main__":
     response = client.messages.create(
     model = "claude-sonnet-4-5-20250929",

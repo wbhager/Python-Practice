@@ -15,7 +15,7 @@ async def chat_endpoint(data: Message):
 
     response = client.messages.create(
         model = "claude-sonnet-4-5-20250929",
-        max_tokens = 5000,
+        max_tokens = 500,
         messages = [{"role": "user", "content": user_message}]
     )
 
