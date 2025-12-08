@@ -9,7 +9,7 @@ will have access to one of my emails' google calendars, w4561927@gmail.com. I'll
 
 
 
-To-do: Some troubleshooting to figure out why some of the prompts aren't getting answered, adding some more basic UI enhancements, adding basic agent functionality, some system prompt engineering, and potentially adding some sort of memory capability
+To-do: Adding some more basic UI enhancements, adding basic agent functionality where the agent can access my google calendar and add events and send me reminders, some system prompt engineering, and adding some sort of memory capability
 
 <br> <br> <br>
 
@@ -77,3 +77,9 @@ to bring to life a user interface for my agent that I intend to make look like s
 12/2: Constructed the rest of the CSS file, researched more ways that web pages could be shaped and modified, begun learning the basics of how JavaScript works and how it works in tandem with HTML and CSS
 
 12/3: Studied up on the basics of JavaScript, decided upon the basic functionality I wanted my webpage to have, constructed the first full JavaScript file with properties such as basic button functions, displaying error messages, and preventing certain functions from happening when the frontend is waiting for the backend response, troubleshooted a visual mistake where I fixed the allignment of the messages, began scoping out why my agent was only answering basic prompts and not longer ones
+
+12/4: Fixed the issue of why the agent was only answering short prompts, I added an extra code node to my n8n pipeline that stringifies the JSON immediately before it gets sent back through the respond-to-webhook node.
+
+12/5: Swapped some code around from the api_server.py and ai_response_generator.py files - it did not make sense to have a bit of logic in my api server file. Crafted the first version of the system prompt in the system_prompt.txt file, where I essentially asked for the bot to be a planner for me and to provide me recommendations as to how I can fill out parts of my schedule. Started troubleshooting an issue where the bot got stuck on the HTTP Post Request node where the API call to Claude does not seem to be made.
+
+12/8: Fixed the issue where my bot gets stuck on the HTTP post request, there were some typos in my api_server.py and my ai_response_generator.py files. 
