@@ -8,19 +8,49 @@ const inputEl = document.getElementById('user-input');
 const sendButtonEl = document.getElementById('send-button');
 const statusEl = document.getElementById('status');
 
-// Add-messages-to-message-box function
+// Add-messages-to-message-box function and message fade-in animation
 function addMessage(role, text) {
     const row = document.createElement('div');
     row.classList.add('message-row', role);
 
+    // Creating the bubble
     const bubble = document.createElement('div');
     bubble.classList.add('message-bubble');
     bubble.textContent = text;
 
+    // Creating the copy button
+    const copyButton = document.createElement('button');
+    copyButton.classList.add('copy-button');
+    copyButton.textContent = "📋";
+
+    // Appending the bubble and button to the chat container
     row.appendChild(bubble);
     messagesEl.appendChild(row);
 
+    // Enacting copying behavior
+    copyButton.onclick = () => {
+        navigator.clipboard.writeText(text);
+    };
+
+    requestAnimationFrame(() => {
+        row.classList.add('show');
+    });
+
     messagesEl.scrollTop = messagesEl.scrollHeight;
+};
+
+// Adding speech-to-text functionality
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+recognition.lang = 'en-US';
+
+recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    document.getElementById('user-input').value = transcript;
+
+};
+
+function startListening() {
+    recognition.start();
 }
 
 // Update current UI state
@@ -80,7 +110,7 @@ async function sendMessageToAgent(userMessage) {
 // Light mode / dark mode applier function
 function applyThemeByTime() {
     const hour = new Date().getHours()
-    const ifNight = hour >= 17.5 || hour <= 8.5
+    const ifNight = hour >= 17.5 || hour <= 7.5
 
     if (ifNight) {
         document.body.classList.add("dark-mode")
