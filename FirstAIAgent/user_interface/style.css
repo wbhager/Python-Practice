@@ -1,11 +1,11 @@
 /* Default background settings (Light mode) */
 :root {
     --bg: #d1eaff;
-    --secondary-bg: #bcdcff;
+    --secondary-bg: #bcd4ff;
     --tertiary-bg: #fafafa;
     --fourth-bg: #fafafa;
     --text: #222;
-    --bubble-user: #1deaff;
+    --bubble-user: #b7a8e3;
     --bubble-bot: #ffffff;
     --header-bg: #ffffff;
     --border: #ddd;
@@ -48,6 +48,8 @@ html, body {
     padding: 12px 16px;
     background: var(--header-bg);
     color: var(--text);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .app-header h1 {
@@ -116,6 +118,8 @@ html, body {
     padding: 8px 12px;
     border-top: 1px solid #aebcc6;
     background: var(--tertiary-bg);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 #chat-form {

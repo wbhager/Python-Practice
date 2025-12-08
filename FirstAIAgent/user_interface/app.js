@@ -80,7 +80,7 @@ async function sendMessageToAgent(userMessage) {
 // Light mode / dark mode applier function
 function applyThemeByTime() {
     const hour = new Date().getHours()
-    const ifNight = hour >= 17.5 || hour <= 9.5
+    const ifNight = hour >= 17.5 || hour <= 8.5
 
     if (ifNight) {
         document.body.classList.add("dark-mode")
