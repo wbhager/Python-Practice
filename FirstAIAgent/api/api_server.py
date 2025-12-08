@@ -10,7 +10,7 @@ class Message(BaseModel):
 # Creating api endpoint, handles the post request and routing
 @app.post("/chat")
 async def chat_endpoint(data: Message):
-    user_message = get_claude_response(data.message)
+    reply = get_claude_response(data.message)
     return {"reply": reply}
 
 
