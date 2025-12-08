@@ -1,6 +1,9 @@
 /* Default background settings (Light mode) */
 :root {
     --bg: #d1eaff;
+    --secondary-bg: #bcdcff;
+    --tertiary-bg: #fafafa;
+    --fourth-bg: #fafafa;
     --text: #222;
     --bubble-user: #1deaff;
     --bubble-bot: #ffffff;
@@ -10,10 +13,13 @@
 
 .dark-mode {
     --bg: #1e1e1e;
+    --secondary-bg: #0f2747;
+    --tertiary-bg: #4b78a9;
+    --fourth-bg: #1a1a1a;
     --text: #e5e5e5;
     --bubble-user: #274e77;
-    --bubble-bot: #2b2b2b;
-    --header-bg: #222;
+    --bubble-bot: #2e253f;
+    --header-bg: #0b1628;
     --border: #444;
 }
 
@@ -41,7 +47,7 @@ html, body {
 .app-header {
     padding: 12px 16px;
     background: var(--header-bg);
-    color: white;
+    color: var(--text);
 }
 
 .app-header h1 {
@@ -59,7 +65,7 @@ html, body {
     flex: 1;
     padding: 16px;
     overflow-y: auto;
-    background: #bcdcff;
+    background: var(--secondary-bg);
 }
 
 /* Message features */
@@ -88,6 +94,7 @@ html, body {
     font-size: 0.95rem;
     line-height: 1.4;
     white-space: pre-wrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .message-row.user .message-bubble {
@@ -107,8 +114,8 @@ html, body {
 /* Input area features */
 .input-container {
     padding: 8px 12px;
-    border-top: 1px solid #ddd;
-    background: #fafafa;
+    border-top: 1px solid #aebcc6;
+    background: var(--tertiary-bg);
 }
 
 #chat-form {
@@ -120,22 +127,24 @@ html, body {
     flex: 1;
     padding: 8px 10px;
     font-size: 1rem;
+    color: var(--text);
+    background: var(--fourth-bg);
     border: 1px solid #ccc;
     border-radius: 6px;
 }
 
 #user-input:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: var(--border);
 }
 
 #send-button {
     padding: 8px 16px;
     font-size: 1rem;
     border-radius: 6px;
-    border: none;
+    border-color: var(--border);
     background: #007bff;
-    color: white;
+    color: var(--bg);
     cursor: pointer;
 }
 
@@ -147,5 +156,5 @@ html, body {
 .status {
     margin-top: 4px;
     font-size: 0.8rem;
-    color: #555;
+    color: var(--text);
 }
