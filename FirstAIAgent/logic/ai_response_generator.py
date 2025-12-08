@@ -14,6 +14,7 @@ def get_claude_response(user_message: str):
         model = "claude-sonnet-4-5-20250929",
         system = SYSTEM_PROMPT,
         max_tokens = 300,
+        temperature = 0.7,
         messages = [{"role": "user", "content": user_message}])
 
     return response.content[0].text
