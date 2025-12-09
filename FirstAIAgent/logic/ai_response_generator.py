@@ -13,7 +13,7 @@ def get_claude_response(user_message: str):
     response = client.messages.create(
         model = "claude-sonnet-4-5-20250929",
         system = SYSTEM_PROMPT,
-        max_tokens = 300,
+        max_tokens = 500,
         temperature = 0.7,
         messages = [{"role": "user", "content": user_message}])
 
