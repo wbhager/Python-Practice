@@ -76,7 +76,7 @@ html, body {
 .messages {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
 }
 
 .message-row {
@@ -99,6 +99,59 @@ html, body {
     justify-content: flex-start;
 }
 
+/* Creating copy button and effect */
+.copy-container {
+    position: absolute;
+    left: 50%;
+    bottom: -32px; 
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.copy-button {
+    background: var(--bubble-bot);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 6px;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+    transition: background 0.2s, transform 0.15s ease;
+}
+
+.copy-button:hover {
+    background: var(--bubble-user);
+    transform: scale(1.12);
+}
+
+.copy-label {
+    font-size: 0.65rem;
+    margin-top: 2px;
+    color: var(--text);
+    opacity: 0.85;
+}
+
+.message-row:hover .copy-container {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.message-row.user .copy-container {
+    left: 100%;
+    transform: translateX(-100%);
+}
+
+.message-row.assistant .copy-container {
+    left: 0%;
+    transform: translateX(0%);
+}
+
 .message-bubble {
     max-width: 70%;
     padding: 8px 12px;
@@ -107,6 +160,7 @@ html, body {
     line-height: 1.4;
     white-space: pre-wrap;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    position: relative;
 }
 
 .message-row.user .message-bubble {

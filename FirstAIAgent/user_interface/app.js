@@ -18,12 +18,26 @@ function addMessage(role, text) {
     bubble.classList.add('message-bubble');
     bubble.textContent = text;
 
+    // Initializing the copy container to contain the icon and the label
+    const copyContainer = document.createElement('div');
+    copyContainer.classList.add('copy-container');
+
     // Creating the copy button
     const copyButton = document.createElement('button');
     copyButton.classList.add('copy-button');
-    copyButton.textContent = "📋";
+    copyButton.textContent = "⧉";
 
-    // Appending the bubble and button to the chat container
+    // Creating the copy label
+    const copyLabel = document.createElement('span');
+    copyLabel.classList.add('copy-label');
+    copyLabel.textContent = "Copy";
+
+    // Building the copy container
+    copyContainer.appendChild(copyButton);
+    copyContainer.appendChild(copyLabel);
+
+    // Appending the copy container to be inside the bubble, adding bubble to row, row to chat container
+    bubble.appendChild(copyContainer);
     row.appendChild(bubble);
     messagesEl.appendChild(row);
 
@@ -32,6 +46,7 @@ function addMessage(role, text) {
         navigator.clipboard.writeText(text);
     };
 
+    // Fade-in animation for text
     requestAnimationFrame(() => {
         row.classList.add('show');
     });
