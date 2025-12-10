@@ -25,6 +25,34 @@
     --border: #444;
 }
 
+/* Adding an extra background layer for a noise texture */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.15), 
+        rgba(220, 235, 255, 0.12),  
+        rgba(230, 240, 255, 0.10)  
+    );
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Dark mode background */
+.dark-mode body::before {
+    background: radial-gradient(
+        circle at center,
+        rgba(30, 40, 60, 0.4),
+        rgba(10, 15, 25, 0.6)
+    );
+}
+
+/* Adding a box shadow to just the body */
+body {
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.08) inset;
+}
 
 /* Background default settings across everything */
 html, body {
@@ -32,8 +60,25 @@ html, body {
     padding: 20px;
     height: 100%;
     font-family: Helvetica, sans-serif;
-    background: var(--bg);
     color: var(--text);
+    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+    url('https://transparenttextures.com/patterns/cubes.png');
+    background-blend-mode: multiply;
+}
+
+/* Background dark mode */
+body.dark-mode {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('https://transparenttextures.com/patterns/cubes.png');
+}
+
+body.dark-mode::before {
+    background: radial-gradient(
+        circle at center,
+        rgba(30, 40, 60, 0.4),
+        rgba(10, 15, 25, 0.6)
+    );
 }
 
 /* Adjusting position of chat window */
@@ -43,7 +88,14 @@ html, body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-}
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.08),
+        0 2px 6px rgba(0,0,0,0.06);
+    padding-bottom: 20px;
+    }
 
 /* Header features */
 .app-header {
