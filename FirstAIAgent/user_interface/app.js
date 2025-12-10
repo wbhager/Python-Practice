@@ -9,7 +9,7 @@ const sendButtonEl = document.getElementById('send-button');
 const statusEl = document.getElementById('status');
 
 // Add-messages-to-message-box function and message fade-in animation
-function addMessage(role, text) {
+function addMessage(role, text, extraContent = null) {
     const row = document.createElement('div');
     row.classList.add('message-row', role);
 
@@ -17,6 +17,11 @@ function addMessage(role, text) {
     const bubble = document.createElement('div');
     bubble.classList.add('message-bubble');
     bubble.textContent = text;
+
+    // If there is extra content (for now, just the first message where we also supply intent buttons
+    if (extraContent) {
+        bubble.appendChild(extraContent);
+    }
 
     // Initializing the copy container to contain the icon and the label
     const copyContainer = document.createElement('div');
@@ -53,6 +58,45 @@ function addMessage(role, text) {
 
     messagesEl.scrollTop = messagesEl.scrollHeight;
 };
+
+// Creating a function that can build intent buttons
+function createIntentButtons() {
+    const container = document.createElement('div');
+    container.classList.add('intent-button-row');
+
+    const intents = [
+        { label: "Plan an Event", color: "#3a6df0" },
+        { label: "Set a Reminder", color: "#7a5df5" },
+        { label: "Delete an Event", color: "#2aa79b" },
+        { label: "Ask a Question", color: "#ff914d" }
+    ];
+
+    intents.forEach(intent => {
+        const btn = document.createElement('button');
+        btn.classList.add('intent-btn');
+        btn.textContent = intent.label;
+        btn.style.background = intent.color;
+
+        btn.addEventListener('click', () => {
+            sendMessageToAgent(`I would like to ${intent.label.toLowerCase()}.`);
+        });
+
+        container.appendChild(btn);
+    });
+
+    return container;
+}
+
+// Automatically sending the welcome message on page load
+window.addEventListener("DOMContentLoaded", () => {
+    const intentButtons = createIntentButtons();
+
+    addMessage(
+        "assistant",
+        "Hi! Welcome to my planning agent. What would you like to get started with today?",
+        intentButtons
+    );
+});
 
 // Adding speech-to-text functionality
 const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
@@ -125,7 +169,7 @@ async function sendMessageToAgent(userMessage) {
 // Light mode / dark mode applier function
 function applyThemeByTime() {
     const hour = new Date().getHours()
-    const ifNight = hour >= 22.5 || hour <= 7.5
+    const ifNight = hour >= 17.5 || hour <= 7.5
 
     if (ifNight) {
         document.body.classList.add("dark-mode")

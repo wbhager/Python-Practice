@@ -10,6 +10,10 @@
     --bubble-bot: #ffffff;
     --header-bg: #ffffff;
     --border: #ddd;
+    --btn-blue: #6fa8ff;
+    --btn-purple: #b79cff;
+    --btn-teal: #88e0d0;
+    --btn-orange: #ffbf80;
 }
 
 .dark-mode {
@@ -23,6 +27,10 @@
     --bubble-bot: #2e253f;
     --header-bg: #0b1628;
     --border: #444;
+    --btn-blue: #3a6df0;
+    --btn-purple: #7a5df5;
+    --btn-teal: #2aa79b;
+    --btn-orange: #ff914d;
 }
 
 /* Adding an extra background layer for a noise texture */
@@ -94,7 +102,6 @@ body.dark-mode::before {
     box-shadow:
         0 8px 30px rgba(0,0,0,0.08),
         0 2px 6px rgba(0,0,0,0.06);
-    padding-bottom: 20px;
     }
 
 /* Header features */
@@ -149,6 +156,30 @@ body.dark-mode::before {
 
 .message-row.assistant {
     justify-content: flex-start;
+}
+
+/* Creating intent buttons */
+.intent-button-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.intent-btn {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 14px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.intent-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
 /* Creating copy button and effect */
