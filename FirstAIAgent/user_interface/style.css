@@ -282,6 +282,9 @@ body.dark-mode::before {
     background: var(--fourth-bg);
     border: 1px solid #ccc;
     border-radius: 6px;
+    resize: none; 
+    overflow-y: auto;
+    white-space: pre-wrap;
 }
 
 #user-input:focus {
@@ -289,7 +292,7 @@ body.dark-mode::before {
     border-color: var(--border);
 }
 
-#mic-button {
+#feature-button {
     background: var(--fifth-bg);
     border-radius: 6px;
     border-color: var(--border);

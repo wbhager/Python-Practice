@@ -89,6 +89,10 @@ function createIntentButtons() {
 
 // Automatically sending the welcome message on page load
 window.addEventListener("DOMContentLoaded", () => {
+
+    // Reapply dark-mode / light-mode
+    applyThemeByTime();
+    
     const intentButtons = createIntentButtons();
 
     addMessage(
@@ -166,10 +170,36 @@ async function sendMessageToAgent(userMessage) {
     }
 }
 
+// Restarting chat button action
+document.getElementById("restart-chat-btn").addEventListener("click", () => {
+    messagesEl.innerHTML = "";
+
+    // Reapply dark-mode / light-mode
+    applyThemeByTime();
+
+    const intentButtons = createIntentButtons();
+
+    addMessage(
+        "assistant",
+        "Hi! Welcome to the planning agent that can add and delete events on your Google Calendar, set reminders for you, and more! How can I assist you? \n \n",
+        intentButtons
+    );
+
+    messagesEl.scrollTop = 0;
+});
+
+// Jumping-back-to-top button action
+document.getElementById("jump-top-btn").addEventListener("click", () => {
+    messagesEl.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
 // Light mode / dark mode applier function
 function applyThemeByTime() {
     const hour = new Date().getHours()
-    const ifNight = hour >= 17.5 || hour <= 7.5
+    const ifNight = hour >= 17.5 || hour <= 10.5
 
     if (ifNight) {
         document.body.classList.add("dark-mode")
