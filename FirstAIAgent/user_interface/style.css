@@ -292,12 +292,28 @@ body.dark-mode::before {
     border-color: var(--border);
 }
 
-#feature-button {
+#mic-button {
     background: var(--fifth-bg);
     border-radius: 6px;
     border-color: var(--border);
     cursor: pointer;
 }
+
+#jump-to-top-button {
+    background: var(--fifth-bg);
+    border-radius: 6px;
+    border-color: var(--border);
+    cursor: pointer;
+}
+
+#restart-chat-button {
+    background: var(--fifth-bg);
+    border-radius: 6px;
+    border-color: var(--border);
+    cursor: pointer;
+}
+
+
 
 #send-button {
     padding: 8px 16px;

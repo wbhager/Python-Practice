@@ -7,6 +7,8 @@ const formEl = document.getElementById('chat-form');
 const inputEl = document.getElementById('user-input');
 const sendButtonEl = document.getElementById('send-button');
 const statusEl = document.getElementById('status');
+const chatContainerEl = document.querySelector('.chat-container');
+
 
 // Add-messages-to-message-box function and message fade-in animation
 function addMessage(role, text, extraContent = null) {
@@ -66,6 +68,7 @@ function createIntentButtons() {
 
     const intents = [
         { label: "Plan an Event", color: "#3a6df0" },
+        { label: "Read Upcoming Events", color: "#4b0082"},
         { label: "Set a Reminder", color: "#7a5df5" },
         { label: "Delete an Event", color: "#2aa79b" },
         { label: "Ask a Question", color: "#ff914d" }
@@ -171,7 +174,7 @@ async function sendMessageToAgent(userMessage) {
 }
 
 // Restarting chat button action
-document.getElementById("restart-chat-btn").addEventListener("click", () => {
+document.getElementById("restart-chat-button").addEventListener("click", () => {
     messagesEl.innerHTML = "";
 
     // Reapply dark-mode / light-mode
@@ -189,8 +192,8 @@ document.getElementById("restart-chat-btn").addEventListener("click", () => {
 });
 
 // Jumping-back-to-top button action
-document.getElementById("jump-top-btn").addEventListener("click", () => {
-    messagesEl.scrollTo({
+document.getElementById("jump-to-top-button").addEventListener("click", () => {
+    chatContainerEl.scrollTo({
         top: 0,
         behavior: "smooth"
     });
@@ -210,6 +213,14 @@ function applyThemeByTime() {
 
 // Apply theme on load/refresh
 applyThemeByTime();
+
+// Allowing for shift-clicking to send the message
+inputEl.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();   
+        formEl.requestSubmit();     
+    }
+});
 
 // Event listener trigger
 formEl.addEventListener('submit', (event) => {
