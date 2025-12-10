@@ -93,8 +93,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     addMessage(
         "assistant",
-        `Hi! Welcome to the planning agent that can add and delete events on your Google Calendar, set reminders for you, and more!
-         How can I assist you?`,
+        `Hi! Welcome to the planning agent that can add and delete events on your Google Calendar, set reminders for you, and more! How can I assist you?`,
         intentButtons
     );
 });
