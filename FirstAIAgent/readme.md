@@ -9,7 +9,7 @@ will have access to one of my emails' google calendars, w4561927@gmail.com. I'll
 
 
 
-To-do: Adding some more basic UI enhancements, adding basic agent functionality where the agent can access my google calendar and add events and send me reminders, some system prompt engineering, and adding some sort of memory capability
+To-do: Finally sync up Google Calendar, add some final UI enhancements, set up first demo
 
 <br> <br> <br>
 
