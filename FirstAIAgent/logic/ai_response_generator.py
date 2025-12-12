@@ -21,23 +21,58 @@ def get_claude_response(user_message: str):
 
     text = raw.content[0].text
 
+    print("----- RAW CLAUDE TEXT -----")
+    print(text)
+    print("---------------------------")
+
+    text = raw.content[0].text
+
+    # CLEAN HERE — BEFORE json.loads(text)
+    clean = (
+        text.replace("```json", "")
+            .replace("```", "")
+            .strip()
+    )
+
+    print("CLEANED TEXT:", clean)
+
     try:
-        data = json.loads(text)
+        data = json.loads(clean)
+        print("JSON PARSED SUCCESSFULLY:")
+        print(data)
+
         if "tool" in data:
+            print("TOOL CALL DETECTED:", data["tool"])
             tool = data["tool"]
             args = data.get("arguments", {})
+            print("TOOL ARGUMENTS:", args)
 
-            resp = requests.post(f"http://localhost:8000/tools/gcal/{tool.replace('gcal_', '')}", json=args)
-            tool_result = resp.json()
+            # Clean tool name fully
+            clean_tool = tool.strip().lower()
 
-            return f"Tool {tool} executed successfully. Result: {tool_result}"
-    except:
-        pass
+            # Map tools directly to endpoints (safe + explicit)
+            endpoint_map = {
+                "gcal_add_event": "add_event",
+                "gcal_delete_event": "delete_event",
+                "gcal_list_events": "list_events",
+                "gcal_add_reminder": "add_reminder"
+            }
 
+            if clean_tool not in endpoint_map:
+                print("UNKNOWN TOOL:", clean_tool)
+                return "ERROR: Unknown tool call"
+
+            endpoint = endpoint_map[clean_tool]
+
+            resp_json = resp.json()
+
+            return {
+                "tool_executed": tool,
+                "result": resp_json
+            }
+
+    except Exception as e:
+        print("JSON FAILED TO PARSE:", e)
+
+    print("NO TOOL CALL — returning raw text")
     return text
-
-
-
-
-
-
