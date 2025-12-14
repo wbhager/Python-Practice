@@ -94,7 +94,7 @@ function createIntentButtons() {
 window.addEventListener("DOMContentLoaded", () => {
 
     // Reapply dark-mode / light-mode
-    applyThemeByTime();
+    loadTheme();
     
     const intentButtons = createIntentButtons();
 
@@ -178,7 +178,7 @@ document.getElementById("restart-chat-button").addEventListener("click", () => {
     messagesEl.innerHTML = "";
 
     // Reapply dark-mode / light-mode
-    applyThemeByTime();
+    loadTheme();
 
     const intentButtons = createIntentButtons();
 
@@ -200,19 +200,49 @@ document.getElementById("jump-to-top-button").addEventListener("click", () => {
 });
 
 // Light mode / dark mode applier function
-function applyThemeByTime() {
-    const hour = new Date().getHours()
-    const ifNight = hour >= 17.5 || hour <= 10.5
+function applyTheme(selectedMode) {
+    let mode = selectedMode;
 
-    if (ifNight) {
-        document.body.classList.add("dark-mode")
+    // Save user preference
+    localStorage.setItem("theme-preference", mode);
+
+    if (mode === "auto") {
+        const hour = new Date().getHours();
+        const isNight = hour >= 17.5 || hour <= 10.5;
+        mode = isNight ? "dark" : "light";
+    }
+
+    // Apply to body
+    if (mode === "dark") {
+        document.body.classList.add("dark-mode");
     } else {
-        document.body.classList.remove("dark-mode")
+        document.body.classList.remove("dark-mode");
+    }
+
+    // Reflect in dropdown UI (if present)
+    const themeSelect = document.getElementById("theme-select");
+    if (themeSelect && themeSelect.value !== selectedMode) {
+        themeSelect.value = selectedMode;
     }
 }
 
-// Apply theme on load/refresh
-applyThemeByTime();
+// Load user preference or default to auto
+function loadTheme() {
+    const saved = localStorage.getItem("theme-preference") || "auto";
+    applyTheme(saved);
+}
+
+loadTheme();
+
+
+const themeSelectEl = document.getElementById("theme-select");
+
+if (themeSelectEl) {
+    themeSelectEl.addEventListener("change", (event) => {
+        const value = event.target.value;
+        applyTheme(value);
+    });
+}
 
 // Allowing for shift-clicking to send the message
 inputEl.addEventListener("keydown", (event) => {

@@ -123,6 +123,19 @@ body.dark-mode::before {
     font-size: 0.75rem;
 }
 
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+}
+
+#theme-select {
+    padding: 4px 6px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
 /* Chat container features */
 .chat-container {
     flex: 1;
