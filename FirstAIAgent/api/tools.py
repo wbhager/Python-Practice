@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
+SCOPES = ["https://www.googleapis.com/auth/calendar"]
+
 app = FastAPI()
 
 @app.post("/gcal/add_event")
