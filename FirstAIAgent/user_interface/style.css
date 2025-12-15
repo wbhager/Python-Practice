@@ -134,6 +134,8 @@ body.dark-mode::before {
     padding: 4px 6px;
     border-radius: 6px;
     font-size: 14px;
+    background: var(--header-bg);
+    color: var(--text);
 }
 
 /* Chat container features */
