@@ -62,4 +62,45 @@ async def add_event(payload: Request):
         "html_link": event["htmlLink"]
     })
 
+@app.post("/gcal/delete_event")
+async def delete_event(payload: Request):
+    data = await payload.json()
+    print("DELETE EVENT payload:", data)
+
+    service = get_calendar_service()
+
+    events_result = service.events().list(
+        calendarId="primary",
+        timeMin=data["search_window_start"],
+        timeMax=data["search_window_end"],
+        q=data.get("search_summary"),
+        singleEvents=True,
+        orderBy="startTime"
+    ).execute()
+
+    events = events_result.get("items", [])
+
+    if not events:
+        return JSONResponse(
+            status_code=404,
+            content={
+                "status": "error",
+                "message": "No matching events found"
+            }
+        )
+
+    # Delete the first matching event
+    event_to_delete = events[0]
+
+    service.events().delete(
+        calendarId="primary",
+        eventId=event_to_delete["id"]
+    ).execute()
+
+    return JSONResponse({
+        "status": "success",
+        "deleted_event_id": event_to_delete["id"],
+        "summary": event_to_delete.get("summary"),
+        "start": event_to_delete["start"]
+    })
 
