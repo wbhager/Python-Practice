@@ -92,4 +92,6 @@ to bring to life a user interface for my agent that I intend to make look like s
 
 12/12: Figured out a bug with the "not having anthropic installed" error, apparently both the server and the zshell terminals need to be set in the virtual environment. FINALLY figured out the solution for allowing fake api endpoints to receive json and produce a response indicating the success and implemented it (required the need of a secondary server to host the fake api endpoint, created by the new tools.py file in my api folder)
 
-12/14: Implemented a dark-mode/light-mode manual dropdown menu so that the user can change the theme manually if they don't want it to be set on auto, set up the Google Calendar Credentials and reworked the tools.py file to be able to add actual calendar events instead of just report back fake api stub success messages
+12/14: Implemented a dark-mode/light-mode manual dropdown menu so that the user can change the theme manually if they don't want it to be set on auto, set up the Google Calendar Credentials and reworked the tools.py file to later be able to add actual calendar events instead of just report back fake api stub success messages
+
+12/15: Reworked the n8n pipeline and tools.py file to be able to add and delete events from my Google Calendar without any issue, updated color on my dropdown theme menu,
