@@ -64,6 +64,13 @@ def get_claude_response(user_message: str):
 
             endpoint = endpoint_map[clean_tool]
 
+            resp = requests.post(
+                f"http://localhost:8100/gcal/{endpoint}",
+                json=args
+            )
+
+            print("TOOL ENDPOINT RESPONSE RAW:", resp.text)
+
             resp_json = resp.json()
 
             return {
