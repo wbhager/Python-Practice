@@ -71,7 +71,8 @@ function createIntentButtons() {
         { label: "Read Upcoming Events", color: "#4b0082"},
         { label: "Set a Reminder", color: "#7a5df5" },
         { label: "Delete an Event", color: "#2aa79b" },
-        { label: "Ask a Question", color: "#ff914d" }
+        { label: "Update an Event", color: "#014D4E"},
+        { label: "Ask a Question", color: "#C15D1A" }
     ];
 
     intents.forEach(intent => {
