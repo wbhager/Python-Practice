@@ -104,3 +104,82 @@ async def delete_event(payload: Request):
         "start": event_to_delete["start"]
     })
 
+@app.post("/gcal/move_event")
+async def update_event(payload: Request):
+    data = await payload.json()
+
+    service = get_calendar_service()
+
+    event_id = data["event_id"]
+
+    # Fetch existing event
+    event = service.events().get(
+        calendarId="primary",
+        eventId=event_id
+    ).execute()
+
+    # Update ONLY the time fields
+    event["start"] = {
+        "dateTime": data["start"]["dateTime"],
+        "timeZone": data["start"]["timeZone"]
+    }
+
+    event["end"] = {
+        "dateTime": data["end"]["dateTime"],
+        "timeZone": data["end"]["timeZone"]
+    }
+
+    updated_event = service.events().update(
+        calendarId="primary",
+        eventId=event_id,
+        body=event
+    ).execute()
+
+    return JSONResponse({
+        "status": "success",
+        "event_id": updated_event["id"],
+        "summary": updated_event.get("summary"),
+        "start": updated_event["start"],
+        "end": updated_event["end"],
+        "html_link": updated_event["htmlLink"]
+    })
+
+@app.post("/gcal/add_reminder")
+async def add_reminder(payload: Request):
+    data = await payload.json()
+    service = get_calendar_service()
+
+    events_result = service.events().list(
+        calendarId="primary",
+        timeMin=data["search_window_start"],
+        timeMax=data["search_window_end"],
+        q=data["search_summary"],
+        singleEvents=True,
+        orderBy="startTime"
+    ).execute()
+
+    events = events_result.get("items", [])
+    if not events:
+        return JSONResponse(
+            status_code=404,
+            content={"status": "error", "message": "No matching event found"}
+        )
+
+    event = events[0]
+
+    event["reminders"] = {
+        "useDefault": False,
+        "overrides": data["reminders"]
+    }
+
+    updated = service.events().update(
+        calendarId="primary",
+        eventId=event["id"],
+        body=event
+    ).execute()
+
+    return JSONResponse({
+        "status": "success",
+        "event_id": updated["id"],
+        "reminders": updated["reminders"]
+    })
