@@ -25,6 +25,17 @@ function addMessage(role, text, extraContent = null) {
         bubble.appendChild(extraContent);
     }
 
+    // ⭐ Star button
+    const starbutton = document.createElement('span');
+    starbutton.classList.add('star-button');
+    starbutton.textContent = '☆'; // outline star
+
+    starbutton.onclick = () => {
+        const starred = row.classList.toggle('starred');
+        starbutton.textContent = starred ? '⭐' : '☆';
+        saveStarredMessage(row.dataset.messageId);
+    };
+
     // Initializing the copy container to contain the icon and the label
     const copyContainer = document.createElement('div');
     copyContainer.classList.add('copy-container');
@@ -46,6 +57,7 @@ function addMessage(role, text, extraContent = null) {
     // Appending the copy container to be inside the bubble, adding bubble to row, row to chat container
     bubble.appendChild(copyContainer);
     row.appendChild(bubble);
+    row.appendChild(starbutton);
     messagesEl.appendChild(row);
 
     // Enacting copying behavior
@@ -174,6 +186,7 @@ async function sendMessageToAgent(userMessage) {
     }
 }
 
+
 // Restarting chat button action
 document.getElementById("restart-chat-button").addEventListener("click", () => {
     messagesEl.innerHTML = "";
@@ -196,6 +209,14 @@ document.getElementById("restart-chat-button").addEventListener("click", () => {
 document.getElementById("jump-to-top-button").addEventListener("click", () => {
     chatContainerEl.scrollTo({
         top: 0,
+        behavior: "smooth"
+    });
+});
+
+// Scroll-to-bottom button action
+document.getElementById("scroll-bottom-button").addEventListener("click", () => {
+    chatContainerEl.scrollTo({
+        top: chatContainerEl.scrollHeight,
         behavior: "smooth"
     });
 });

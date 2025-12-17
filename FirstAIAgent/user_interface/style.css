@@ -174,7 +174,7 @@ body.dark-mode::before {
 }
 
 /* Creating intent buttons */
-.intent-button-row {
+.intent-btn-row {
     display: flex;
     gap: 8px;
     margin-top: 12px;
@@ -275,6 +275,42 @@ body.dark-mode::before {
     border-bottom-left-radius: 2px;
 }
 
+/* Star button */
+.star-button {
+    cursor: pointer;
+    font-size: 18px;
+    opacity: 0.6;
+    margin-left: 8px;
+    user-select: none;
+  }
+  
+  .star-button:hover {
+    opacity: 1;
+  }
+  
+  /* Starred message */
+  .message-row.starred {
+    background: linear-gradient(
+      120deg,
+      rgba(255,255,255,0.0) 30%,
+      rgba(255,255,255,0.9) 50%,
+      rgba(255,255,255,0.0) 70%
+    );
+    background-size: 200% 100%;
+    animation: shine 0.9s ease-out forwards;
+  }
+  
+  /* Final gold state */
+  .message-row.starred .message-bubble {
+    background-color: rgba(255, 215, 0, 0.25);
+  }
+  
+  /* Shine animation */
+  @keyframes shine {
+    from { background-position: -100% 0; }
+    to   { background-position: 150% 0; }
+  }
+
 /* Input area features */
 .input-container {
     padding: 8px 12px;
@@ -308,6 +344,13 @@ body.dark-mode::before {
 }
 
 #mic-button {
+    background: var(--fifth-bg);
+    border-radius: 6px;
+    border-color: var(--border);
+    cursor: pointer;
+}
+
+#scroll-bottom-button {
     background: var(--fifth-bg);
     border-radius: 6px;
     border-color: var(--border);
