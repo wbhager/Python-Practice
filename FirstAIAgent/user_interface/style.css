@@ -30,7 +30,7 @@
     --btn-blue: #3a6df0;
     --btn-purple: #7a5df5;
     --btn-teal: #2aa79b;
-    --btn-orange: #ff914d;
+    --btn-orange: #b55517;
 }
 
 /* Adding an extra background layer for a noise texture */
@@ -69,16 +69,15 @@ html, body {
     height: 100%;
     font-family: Helvetica, sans-serif;
     color: var(--text);
-    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-    url('https://transparenttextures.com/patterns/cubes.png');
+    background-color: rgba(250, 247, 243, 0.9);
+    background-image: url('https://transparenttextures.com/patterns/cubes.png');
     background-blend-mode: multiply;
 }
 
 /* Background dark mode */
 body.dark-mode {
-    background-image:
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-        url('https://transparenttextures.com/patterns/cubes.png');
+    background-color: rgba(0, 0, 0, 0.4);
+    background-image: url('https://transparenttextures.com/patterns/cubes.png');
 }
 
 body.dark-mode::before {
@@ -96,7 +95,7 @@ body.dark-mode::before {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.7);
+    background: #eef1f5;
     backdrop-filter: blur(8px);
     border-radius: 20px;
     box-shadow:
@@ -351,21 +350,21 @@ body.dark-mode::before {
 }
 
 #scroll-bottom-button {
-    background: var(--fifth-bg);
+    background: var(--btn-teal);
     border-radius: 6px;
     border-color: var(--border);
     cursor: pointer;
 }
 
 #jump-to-top-button {
-    background: var(--fifth-bg);
+    background: var(--btn-teal);
     border-radius: 6px;
     border-color: var(--border);
     cursor: pointer;
 }
 
 #restart-chat-button {
-    background: var(--fifth-bg);
+    background: var(--btn-orange);
     border-radius: 6px;
     border-color: var(--border);
     cursor: pointer;
