@@ -23,6 +23,8 @@ TOOLS:
      end:   { dateTime: string, timeZone: string }
      location: string?
      attendees: list[string]
+     remind_at: { dateTime: string, timeZone: string }?
+
 
 2. gcal_delete_event
    arguments:
@@ -39,16 +41,20 @@ TOOLS:
 
 4. gcal_add_reminder
    arguments:
-     summary: string
-     remind_at: { dateTime: string, timeZone: string }
-
-5. gcal_move_event
+     search_summary: string
+     search_window_start: string
+     search_window_end: string
+     reminders: list[{ method: string, minutes: int }]
+`
+5. gcal_update_event
     arguments:
       search_summary: string
       search_window_start: string
       search_window_end: string
       new_start: { dateTime: string, timeZone: string }
       new_end:   { dateTime: string, timeZone: string }
+      remind_at: { dateTime: string, timeZone: string }
+
 
 RULES:
 - If a tool is required → output ONLY the JSON tool call.
@@ -58,3 +64,4 @@ RULES:
 - Do NOT delete and re-add events unless explicitly instructed.
 - All times referenced are in Eastern Standard Time (EST).
 - Do not mix up the start time/end time/duration time. For example - if I state that I want an event at 8 am to last for 3 hours, the event does NOT start at 3 - it starts at 8 am.
+- Make sure to only complete each action one time. For example, if I add an event, I will only add that one event.
