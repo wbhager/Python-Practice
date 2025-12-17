@@ -9,7 +9,7 @@ will have access to one of my emails' google calendars, w4561927@gmail.com. I'll
 
 
 
-To-do: Finally sync up Google Calendar, add some final UI enhancements, set up first demo
+To-do: Set up list-events and modify-events tools, pretty-up UI some more, eliminate redundant code, study up on code to prepare for the demo
 
 <br> <br> <br>
 
@@ -18,22 +18,24 @@ Project layout:
 
 FirstAIAgent/
     api/
+        __pycache__
         api_server.py
+        tools.py
+        credentials.json
+        token.json
     logic/
+        __pycache__
         ai_response.generator.py
-        agent.py
-        model.py
-    memory/
-        buffer.py
-        summary.py
     templates/
         system_prompt.txt
-        qa_prompt.py
-    ui/
+    user_interface/
         index.html
         style.css
         app.js
         favicon.ico
+    .gitignore
+    .env
+    .readme.md
 
 <br> <br> <br>
 
@@ -50,7 +52,7 @@ History on the project:
 11/10: Added code so that I should be able to make an API call to claude-sonnet, but having an issue with an anthropic bug saying I don't have it installed when
 I know that I do 
 
-11/14: Debugging bug saying that I still don't have claude installed, went about fixing this in several ways but still no found solutions. Removed special character from original directory name to limit the kinds of unnecessary errors that could be causing issues for me
+11/14: Debugging bug saying that I still don't have claude installed, went about fixing this in several ways but still have not uncovered any solutions. Removed special character from original directory name to limit the kinds of unnecessary errors that could be causing issues for me
 
 11/16: Spent some more time debugging, renamed file names to remove special characters to limit unnecessary errors
 
