@@ -76,7 +76,7 @@ function addMessage(role, text, extraContent = null) {
 // Creating a function that can build intent buttons
 function createIntentButtons() {
     const container = document.createElement('div');
-    container.classList.add('intent-button-row');
+    container.classList.add('intent-btn-row');
 
     const intents = [
         { label: "Plan an Event", color: "#3a6df0" },

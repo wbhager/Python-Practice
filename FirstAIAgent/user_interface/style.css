@@ -177,7 +177,7 @@ body.dark-mode::before {
 .intent-btn-row {
     display: flex;
     gap: 8px;
-    margin-top: 12px;
+    margin-top: 8px;
     flex-wrap: wrap;
 }
 
