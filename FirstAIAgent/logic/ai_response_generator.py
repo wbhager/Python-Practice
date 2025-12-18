@@ -55,7 +55,8 @@ def get_claude_response(user_message: str):
                 "gcal_add_event": "add_event",
                 "gcal_delete_event": "delete_event",
                 "gcal_list_events": "list_events",
-                "gcal_add_reminder": "add_reminder"
+                "gcal_add_reminder": "add_reminder",
+                "gcal_update_event": "update_event"
             }
 
             if clean_tool not in endpoint_map:
