@@ -53,6 +53,10 @@ TOOLS:
      new_start: { dateTime: string, timeZone: string }
      new_end:   { dateTime: string, timeZone: string }
 
+6. gcal_give_advice
+   arguments:
+    
+
 RULES:
 - If a tool is required → output ONLY the JSON tool call.
 - If no tool is required → respond normally in natural language.
