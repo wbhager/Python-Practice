@@ -57,7 +57,7 @@ def get_claude_response(user_message: str):
                 "gcal_delete_event": "delete_event",
                 "gcal_list_events": "list_events",
                 "gcal_add_reminder": "add_reminder",
-                "gcal_update_event": "update_event"
+                "gcal_update_event": "update_event",
                 "gcal_give_schedule_advice": "give_schedule_advice"
             }
 
