@@ -53,7 +53,7 @@ TOOLS:
      new_start: { dateTime: string, timeZone: string }
      new_end:   { dateTime: string, timeZone: string }
 
-6. gcal_give_advice
+6. gcal_give_schedule_advice
    arguments:
     
 
