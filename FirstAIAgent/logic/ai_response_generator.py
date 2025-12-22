@@ -9,6 +9,7 @@ load_dotenv()
 client = Anthropic(api_key = os.getenv("ANT_AP_KY"))
 
 SYSTEM_PROMPT = Path("templates/system_prompt.txt").read_text()
+STR_TOOL_OUTPUT_SP = Path("templates/structuredToolOutput_sysPrompt.txt").read_text()
 
 # Function that grabs the Claude response with my own specifications
 def get_claude_response(user_message: str):
@@ -50,13 +51,14 @@ def get_claude_response(user_message: str):
             # Clean tool name fully
             clean_tool = tool.strip().lower()
 
-            # Map tools directly to endpoints (safe + explicit)
+            # Map tools directly to endpoints
             endpoint_map = {
                 "gcal_add_event": "add_event",
                 "gcal_delete_event": "delete_event",
                 "gcal_list_events": "list_events",
                 "gcal_add_reminder": "add_reminder",
                 "gcal_update_event": "update_event"
+                "gcal_give_schedule_advice": "give_schedule_advice"
             }
 
             if clean_tool not in endpoint_map:
