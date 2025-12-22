@@ -84,7 +84,8 @@ function createIntentButtons() {
         { label: "Set a Reminder", color: "#7a5df5" },
         { label: "Delete an Event", color: "#2aa79b" },
         { label: "Update an Event", color: "#014D4E"},
-        { label: "Ask a Question", color: "#C15D1A" }
+        { label: "Get Schedule Advice", color: "#C15D1A" },
+        { label: "Ask a Question", color: "#5DA9E9" }
     ];
 
     intents.forEach(intent => {
@@ -113,7 +114,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     addMessage(
         "assistant",
-        `Hi! Welcome to the planning agent that can add and delete events on your Google Calendar, set reminders for you, and more! How can I assist you? \n \n`,
+        `Hi! I’m your planning agent. I can add, update, and delete events on your Google Calendar, review your schedule, and suggest the best times to plan new events. What would you like to do? \n \n`,
         intentButtons
     );
 });
