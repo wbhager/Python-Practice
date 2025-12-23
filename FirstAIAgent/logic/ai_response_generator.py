@@ -6,83 +6,75 @@ import requests
 import os
 
 load_dotenv()
-client = Anthropic(api_key = os.getenv("ANT_AP_KY"))
+client = Anthropic(api_key=os.getenv("ANT_AP_KY"))
 
 SYSTEM_PROMPT = Path("templates/system_prompt.txt").read_text()
 STR_TOOL_OUTPUT_SP = Path("templates/structuredToolOutput_sysPrompt.txt").read_text()
 
-# Function that grabs the Claude response with my own specifications
-def get_claude_response(user_message: str):
+endpoint_map = {
+    "gcal_add_event": "add_event",
+    "gcal_delete_event": "delete_event",
+    "gcal_list_events": "list_events",
+    "gcal_add_reminder": "add_reminder",
+    "gcal_update_event": "update_event",
+    "gcal_give_schedule_advice": "give_schedule_advice"
+}
+
+def get_claude_response(user_message: str, system_prompt: str):
     raw = client.messages.create(
-        model = "claude-sonnet-4-5-20250929",
-        system = SYSTEM_PROMPT,
-        max_tokens = 500,
-        temperature = 0.7,
-        messages = [{"role": "user", "content": user_message}])
+        model="claude-sonnet-4-5-20250929",
+        system=system_prompt,
+        max_tokens=500,
+        temperature=0.7,
+        messages=[{"role": "user", "content": user_message}],
+    )
 
     text = raw.content[0].text
 
-    print("----- RAW CLAUDE TEXT -----")
-    print(text)
-    print("---------------------------")
-
-    text = raw.content[0].text
-
-    # CLEAN HERE — BEFORE json.loads(text)
     clean = (
         text.replace("```json", "")
             .replace("```", "")
             .strip()
     )
 
-    print("CLEANED TEXT:", clean)
-
+    # Try parse JSON (tool call or formatter output)
     try:
         data = json.loads(clean)
-        print("JSON PARSED SUCCESSFULLY:")
-        print(data)
+    except Exception:
+        # If it's not JSON, return as plain reply JSON
+        return {"reply": clean}
 
-        if "tool" in data:
-            print("TOOL CALL DETECTED:", data["tool"])
-            tool = data["tool"]
-            args = data.get("arguments", {})
-            print("TOOL ARGUMENTS:", args)
+    # If this prompt is the formatter prompt, it should already return {"reply": "..."}
+    # Just pass it back.
+    if "reply" in data and "tool" not in data:
+        return data
 
-            # Clean tool name fully
-            clean_tool = tool.strip().lower()
+    # Otherwise, this is the tool-calling prompt case
+    if "tool" in data:
+        tool = data["tool"].strip().lower()
+        args = data.get("arguments", {})
 
-            # Map tools directly to endpoints
-            endpoint_map = {
-                "gcal_add_event": "add_event",
-                "gcal_delete_event": "delete_event",
-                "gcal_list_events": "list_events",
-                "gcal_add_reminder": "add_reminder",
-                "gcal_update_event": "update_event",
-                "gcal_give_schedule_advice": "give_schedule_advice"
-            }
+        if tool not in endpoint_map:
+            return {"reply": f"ERROR: Unknown tool call '{tool}'"}
 
-            if clean_tool not in endpoint_map:
-                print("UNKNOWN TOOL:", clean_tool)
-                return "ERROR: Unknown tool call"
+        endpoint = endpoint_map[tool]
 
-            endpoint = endpoint_map[clean_tool]
+        resp = requests.post(
+            f"http://localhost:8100/gcal/{endpoint}",
+            json=args,
+            timeout=30,
+        )
 
-            resp = requests.post(
-                f"http://localhost:8100/gcal/{endpoint}",
-                json=args
-            )
-
-            print("TOOL ENDPOINT RESPONSE RAW:", resp.text)
-
+        # If tool server errors, return that cleanly
+        try:
             resp_json = resp.json()
+        except Exception:
+            return {"reply": f"Tool error: {resp.text}"}
 
-            return {
-                "tool_executed": tool,
-                "result": resp_json
-            }
+        return {
+            "tool_executed": tool,
+            "result": resp_json
+        }
 
-    except Exception as e:
-        print("JSON FAILED TO PARSE:", e)
-
-    print("NO TOOL CALL — returning raw text")
-    return text
+    # If it was JSON but not tool/reply, fallback
+    return {"reply": clean}
