@@ -224,3 +224,38 @@ async def list_events(payload: Request):
         "count": len(events),
         "events": events
     })
+
+@app.post("/gcal/give_schedule_advice")
+async def give_schedule_advice(payload: Request):
+    data = await payload.json()
+    service = get_calendar_service()
+
+    events_result = service.events().list(
+        calendarId="primary",
+        timeMin=data["time_min"],
+        timeMax=data["time_max"],
+        singleEvents=True,
+        orderBy="startTime"
+    ).execute()
+
+    items = events_result.get("items", [])
+
+    events = []
+    for e in items:
+        start = e.get("start", {})
+        end = e.get("end", {})
+        events.append({
+            "summary": e.get("summary", "(no title)"),
+            "start": start.get("dateTime") or start.get("date"),
+            "end": end.get("dateTime") or end.get("date"),
+        })
+
+    return JSONResponse({
+        "status": "success",
+        "events": events,
+        "preferences": {
+            "preferred_duration_minutes": data.get("preferred_duration_minutes"),
+            "activity_type": data.get("activity_type"),
+        }
+    })
+
