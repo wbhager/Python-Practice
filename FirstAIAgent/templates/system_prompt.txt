@@ -54,7 +54,9 @@ TOOLS:
      new_end:   { dateTime: string, timeZone: string }
 
 6. gcal_give_schedule_advice
-   arguments:
+   arguments: 
+     time_min: string
+     time_max: string
     
 
 RULES:
