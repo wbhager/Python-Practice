@@ -9,7 +9,7 @@ will have access to one of my emails' google calendars, w4561927@gmail.com. I'll
 
 
 
-To-do: Set up list-events and modify-events tools, pretty-up UI some more, eliminate redundant code, study up on code to prepare for the demo
+To-do: Done!
 
 <br> <br> <br>
 
@@ -106,4 +106,6 @@ to bring to life a user interface for my agent that I intend to make look like s
 
 12/19: Massively updated the workflow by shifting nodes to different parts of the workflow, implementing switch nodes instead of if statements, way less respond-to-webhook nodes, a second http post request node so that claude can format a well-made response after a tool has been utilized, and eliminated redundant code within the code nodes, fixed an inquiry response formatting issue
 
-12/22: 
+12/22: Finished touching up the workflow, reduced the workflow to only 8 nodes. Tinkered with the system prompts and the response generator code to finally get formatted tool response answers for add event, update event, add reminder, and delete event. 
+
+12/23: Added one final api_endpoint for my give_schedule advice tool, and I adjusted code in the system_prompt.txt file and the ai_response_generator.py file in order for my list events and give schedule advice tools' answers to be explained properly in an acceptable format
