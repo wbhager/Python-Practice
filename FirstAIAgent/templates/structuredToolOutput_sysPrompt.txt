@@ -5,7 +5,7 @@ Rules:
 - You are NOT allowed to call tools.
 - You must NOT mention internal tool names.
 - You must NOT include raw JSON in your reply.
-- You must return ONLY valid JSON in the format:
+- (Very important) You must return ONLY valid JSON in the format:
   { "reply": "string" }
 
 Guidelines:
