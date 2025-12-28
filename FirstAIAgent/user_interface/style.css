@@ -48,15 +48,6 @@ body::before {
     z-index: -1;
 }
 
-/* Dark mode background */
-.dark-mode body::before {
-    background: radial-gradient(
-        circle at center,
-        rgba(30, 40, 60, 0.4),
-        rgba(10, 15, 25, 0.6)
-    );
-}
-
 /* Adding a box shadow to just the body */
 body {
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.08) inset;
@@ -77,7 +68,6 @@ html, body {
 /* Background dark mode */
 body.dark-mode {
     background-color: rgba(0, 0, 0, 0.4);
-    background-image: url('https://transparenttextures.com/patterns/cubes.png');
 }
 
 body.dark-mode::before {
@@ -263,14 +253,12 @@ body.dark-mode::before {
 .message-row.user .message-bubble {
     background: var(--bubble-user);
     color: var(--text);
-    border: var(--border);
     border-bottom-right-radius: 2px;
 }
 
 .message-row.assistant .message-bubble {
     background: var(--bubble-bot);
     color: var(--text);
-    border: var(--border);
     border-bottom-left-radius: 2px;
 }
 
