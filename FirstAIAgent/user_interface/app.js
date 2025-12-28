@@ -149,7 +149,7 @@ function setLoading(isLoading) {
     }
 }
 
-// Send-message-to-n8n-webhook-so-Claude-can-read-it and receiver-of-Claudes-answer asynchronous function
+// Send-message-to-n8n-webhook-so-Claude-can-read-it and receiver-of-Claudes-formatted-final-answer asynchronous function
 async function sendMessageToAgent(userMessage) {
     addMessage('user', userMessage);
     setLoading(true);
