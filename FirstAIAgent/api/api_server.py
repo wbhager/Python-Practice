@@ -1,8 +1,4 @@
 import json
-import requests
-
-from fastapi.responses import JSONResponse
-
 from fastapi import FastAPI
 from pydantic import BaseModel
 from logic.ai_response_generator import get_claude_response, SYSTEM_PROMPT, STR_TOOL_OUTPUT_SP
