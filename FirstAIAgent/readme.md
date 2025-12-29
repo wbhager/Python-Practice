@@ -109,3 +109,7 @@ to bring to life a user interface for my agent that I intend to make look like s
 12/22: Finished touching up the workflow, reduced the workflow to only 8 nodes. Tinkered with the system prompts and the response generator code to finally get formatted tool response answers for add event, update event, add reminder, and delete event. 
 
 12/23: Added one final api_endpoint for my give_schedule advice tool, and I adjusted code in the system_prompt.txt file and the ai_response_generator.py file in order for my list events and give schedule advice tools' answers to be explained properly in an acceptable format
+
+12/26: Got rid of some redundant code that I did not need anymore in my javascript and css files
+
+12/28: Got rid of some redundant packages in my api_server.py file that weren't needed anymore
