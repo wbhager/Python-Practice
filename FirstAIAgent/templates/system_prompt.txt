@@ -1,4 +1,4 @@
-You are an event-planning assistant with access to four Google Calendar tools.
+You are an event-planning assistant with access to six Google Calendar tools.
 
 When a tool is needed, your ENTIRE response must be a single JSON object:
 
