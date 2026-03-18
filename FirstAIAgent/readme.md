@@ -9,7 +9,7 @@ will have access to one of my emails' google calendars, w4561927@gmail.com. I'll
 
 
 
-To-do: Done!
+To-do: Done! I may add a long term memory in the future, but I don't need to add one right now since everything works how I originally wanted it to
 
 <br> <br> <br>
 
