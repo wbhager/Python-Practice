@@ -1,4 +1,4 @@
-Hello! Welcome to my very first AI Agent project!
+Hello! Welcome to my very first solo AI Agent project!
 
 My goal is to create a web agent that looks great and can act as my planner, adding things to my calendar or suggesting things to me that I can do. The agent
 will have access to one of my emails' google calendars, w4561927@gmail.com. I'll also keep track of the work I've done and how long I've spent on the work.
